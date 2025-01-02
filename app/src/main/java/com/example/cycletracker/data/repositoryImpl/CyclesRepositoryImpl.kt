@@ -9,6 +9,10 @@ class CyclesRepositoryImpl(private val cyclesDao:CyclesDAO):CyclesRepository {
         return cyclesDao.getAllCycles()
     }
 
+    override suspend fun findCycleDataById(id:Long): Cycles? {
+        return cyclesDao.findCycleDataById(id)
+    }
+
     override suspend fun updateCycle(cycleData: Cycles) {
         cyclesDao.updateCycle(cycleData)
     }

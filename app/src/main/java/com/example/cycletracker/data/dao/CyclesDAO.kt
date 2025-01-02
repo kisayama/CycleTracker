@@ -11,6 +11,9 @@ import com.example.cycletracker.data.model.Cycles
 interface CyclesDAO {
     @Query("SELECT * FROM CycleData")
     suspend fun getAllCycles() : List<Cycles>
+    //見つかるレコードは一つだけ　見つからなかったらNullを返す
+    @Query("SELECT * FROM CycleData WHERE :id")
+    suspend fun findCycleDataById(id: Long):Cycles?
     @Update
     suspend fun updateCycle(cycleData: Cycles)
     @Insert
