@@ -37,10 +37,10 @@ class SimpleEntityReadWriteTest {
     }
     @Test
     @Throws(Exception::class)
-    fun writeCycleAndReadInList() = runBlocking{
-        val testUtil = TestUtil()
+    fun writeTableAndReadInList() = runBlocking{
+        val cycleTestUtil = CycleTestUtil()
         //初期値でテストする
-        val testData = testUtil.createCycle()
+        val testData = cycleTestUtil.createCycle()
         cyclesDAO.insertCycle(testData)
 
         val allData = cyclesDAO.getAllCycles()
@@ -48,5 +48,13 @@ class SimpleEntityReadWriteTest {
         allData.forEach {
             Log.d("AllCycleData","Cycle$it")
         }
+        val remainderTestData = RemainderTestUtil().createRemainder()
+        remindersDAO.insertRemainder(remainderTestData)
+        val remainderAllData = remindersDAO.getAllRemainders()
+
+        remainderAllData.forEach { it ->
+            Log.d("AllRemainder","Remainder$it")
+        }
     }
+
 }
