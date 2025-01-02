@@ -1,11 +1,13 @@
 package com.example.cycletracker.data
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.cycletracker.data.dao.CyclesDAO
 import com.example.cycletracker.data.dao.RemaindersDAO
+import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -35,10 +37,16 @@ class SimpleEntityReadWriteTest {
     }
     @Test
     @Throws(Exception::class)
-    suspend fun writeCycleAndReadInList(){
+    fun writeCycleAndReadInList() = runBlocking{
         val testUtil = TestUtil()
         //初期値でテストする
         val testData = testUtil.createCycle()
         cyclesDAO.insertCycle(testData)
+
+        val allData = cyclesDAO.getAllCycles()
+
+        allData.forEach {
+            Log.d("AllCycleData","Cycle$it")
+        }
     }
 }
