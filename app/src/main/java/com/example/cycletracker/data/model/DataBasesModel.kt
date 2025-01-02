@@ -10,7 +10,9 @@ import java.util.Date
 
 @Entity(tableName = "CycleData")
 data class Cycles(
-    @PrimaryKey(autoGenerate = true) val id:Long,
+    // autoGenerateを有効にするため、初期値として0を設定。(初期値を設定しないとコンパイル時にエラーが発生するため)
+    // autoGenerateが優先され、実際のIDは自動的に生成される。
+    @PrimaryKey(autoGenerate = true) val id:Long= 0,
     @ColumnInfo(name = "startDay")
     val startDay: Date,
     @ColumnInfo(name = "endDay")
