@@ -3,6 +3,7 @@ package com.example.cycletracker.data.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import androidx.room.Index
 import androidx.room.PrimaryKey
 import java.sql.Time
 import java.util.Date
@@ -14,7 +15,7 @@ data class Cycles(
     val startDay: Date,
     @ColumnInfo(name = "endDay")
     val endDay: Date,
-    @ColumnInfo(name = "during")
+    @ColumnInfo(name = "cycleLength")
     //Dateは単位msなので引き算の結果を1日分のmsで割る
     val cycleLength: Int
 )
@@ -24,15 +25,15 @@ data class Cycles(
         entity = Cycles::class,
         parentColumns = ["id"],
         //parentColumnsとchildColumnsは同じ値を持つ　値を指定することで相互のアクセスが可能になる
-        childColumns = ["eventId"],
+        childColumns = ["cycleId"],
         onDelete = ForeignKey.CASCADE //親が削除された時には対応するremaindersも削除する
-    )
-    ]
+    )],
+    indices = [Index(value = ["cycleId"])]//cycleIdにインデックスを作成
 )
 data class Remainders(
-    @PrimaryKey(autoGenerate = true) val id :Long,
-    val eventId:Long,
+    @PrimaryKey(autoGenerate = true) val remainderId :Long= 0,
+    val cycleId:Long,
     val remindAt :Date,
-    val remindHour : Time
+    val remindHour : Time = Time(21 * 60 * 60 * 1000) //初期値は21時
 )
 
