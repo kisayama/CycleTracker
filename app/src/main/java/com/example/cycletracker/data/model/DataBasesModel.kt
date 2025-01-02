@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 import java.sql.Time
 import java.util.Date
 
-@Entity(tableName = "CycleData")
+@Entity(tableName = "CyclesData")
 data class Cycles(
     // autoGenerateを有効にするため、初期値として0を設定。(初期値を設定しないとコンパイル時にエラーが発生するため)
     // autoGenerateが優先され、実際のIDは自動的に生成される。
@@ -22,7 +22,7 @@ data class Cycles(
     val cycleLength: Int
 )
 
-@Entity(tableName = "Remainders",
+@Entity(tableName = "RemaindersData",
     foreignKeys = [ForeignKey(
         entity = Cycles::class,
         parentColumns = ["id"],
