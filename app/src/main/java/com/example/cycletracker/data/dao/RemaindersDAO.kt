@@ -14,7 +14,7 @@ interface RemaindersDAO {
     @Query("SELECT * FROM Remainders WHERE remainderId = :remainderId")
     //見つかるレコードは一つだけ　見つからなかったらNullを返す
     suspend fun findRemaindersByRemainderId(remainderId:Long):Remainders?
-    @Query("SELECT * FROM Remainders WHERE id = :cycleId")
+    @Query("SELECT * FROM Remainders WHERE cycleId = :cycleId")
     suspend fun findRemaindersByCycleId(cycleId:Long):Remainders?
     @Update
     suspend fun updateRemainder(remaindersData: Remainders)
