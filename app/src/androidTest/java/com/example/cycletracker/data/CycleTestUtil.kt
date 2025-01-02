@@ -3,7 +3,7 @@ package com.example.cycletracker.data
 import com.example.cycletracker.data.model.Cycles
 import java.util.Date
 
-class TestUtil {
+class CycleTestUtil {
     val startDate = Date()
     val endDate = Date(startDate.time + (2 * 24 * 60 * 60 * 1000))  // 2日後
 
