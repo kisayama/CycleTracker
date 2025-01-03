@@ -9,10 +9,10 @@ import com.example.cycletracker.data.model.Cycles
 
 @Dao
 interface CyclesDAO {
-    @Query("SELECT * FROM CycleData")
+    @Query("SELECT * FROM CyclesData")
     suspend fun getAllCycles() : List<Cycles>
     //見つかるレコードは一つだけ　見つからなかったらNullを返す
-    @Query("SELECT * FROM CycleData WHERE :id")
+    @Query("SELECT * FROM CyclesData WHERE :id")
     suspend fun findCycleDataById(id: Long):Cycles?
     @Update
     suspend fun updateCycle(cycleData: Cycles)

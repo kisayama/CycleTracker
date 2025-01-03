@@ -9,12 +9,12 @@ import com.example.cycletracker.data.model.Remainders
 
 @Dao
 interface RemaindersDAO {
-    @Query("SELECT* FROM Remainders" )
+    @Query("SELECT* FROM RemaindersData" )
     suspend fun getAllRemainders():List<Remainders>
-    @Query("SELECT * FROM Remainders WHERE remainderId = :remainderId")
+    @Query("SELECT * FROM RemaindersData WHERE remainderId = :remainderId")
     //見つかるレコードは一つだけ　見つからなかったらNullを返す
     suspend fun findRemaindersByRemainderId(remainderId:Long):Remainders?
-    @Query("SELECT * FROM Remainders WHERE cycleId = :cycleId")
+    @Query("SELECT * FROM RemaindersData WHERE cycleId = :cycleId")
     suspend fun findRemaindersByCycleId(cycleId:Long):Remainders?
     @Update
     suspend fun updateRemainder(remaindersData: Remainders)
