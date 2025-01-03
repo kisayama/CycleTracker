@@ -1,11 +1,11 @@
-package com.example.cycletracker.data.dao
+package com.example.cycletracker.database.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.example.cycletracker.data.model.Cycles
+import com.example.cycletracker.model.Cycles
 
 @Dao
 interface CyclesDAO {
@@ -13,7 +13,7 @@ interface CyclesDAO {
     suspend fun getAllCycles() : List<Cycles>
     //見つかるレコードは一つだけ　見つからなかったらNullを返す
     @Query("SELECT * FROM CyclesData WHERE :id")
-    suspend fun findCycleDataById(id: Long):Cycles?
+    suspend fun findCycleDataById(id: Long): Cycles?
     @Update
     suspend fun updateCycle(cycleData: Cycles)
     @Insert

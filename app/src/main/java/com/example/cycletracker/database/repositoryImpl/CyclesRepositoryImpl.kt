@@ -1,10 +1,10 @@
-package com.example.cycletracker.data.repositoryImpl
+package com.example.cycletracker.database.repositoryImpl
 
-import com.example.cycletracker.data.dao.CyclesDAO
-import com.example.cycletracker.data.model.Cycles
-import com.example.cycletracker.data.repository.CyclesRepository
+import com.example.cycletracker.database.dao.CyclesDAO
+import com.example.cycletracker.model.Cycles
+import com.example.cycletracker.database.repository.CyclesRepository
 
-class CyclesRepositoryImpl(private val cyclesDao:CyclesDAO):CyclesRepository {
+class CyclesRepositoryImpl(private val cyclesDao: CyclesDAO): CyclesRepository {
     override suspend fun getAllCycles(): List<Cycles> {
         return cyclesDao.getAllCycles()
     }

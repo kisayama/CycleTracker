@@ -1,6 +1,6 @@
 package com.example.cycletracker.data
 
-import com.example.cycletracker.data.model.Remainders
+import com.example.cycletracker.model.Remainders
 import java.util.Date
 
 class RemainderTestUtil {

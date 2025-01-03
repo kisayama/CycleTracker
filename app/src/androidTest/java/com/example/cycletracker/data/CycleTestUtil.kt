@@ -1,6 +1,6 @@
 package com.example.cycletracker.data
 
-import com.example.cycletracker.data.model.Cycles
+import com.example.cycletracker.model.Cycles
 import java.util.Date
 
 class CycleTestUtil {

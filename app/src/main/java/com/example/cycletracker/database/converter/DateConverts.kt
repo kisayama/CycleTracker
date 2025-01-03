@@ -1,4 +1,4 @@
-package com.example.cycletracker.data.converter
+package com.example.cycletracker.database.converter
 
 import androidx.room.TypeConverter
 import java.util.Date

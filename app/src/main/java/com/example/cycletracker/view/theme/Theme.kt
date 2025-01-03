@@ -1,4 +1,4 @@
-package com.example.cycletracker.ui.theme
+package com.example.cycletracker.view.theme
 
 import android.app.Activity
 import android.os.Build

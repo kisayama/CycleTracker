@@ -1,8 +1,8 @@
-package com.example.cycletracker.data.repositoryImpl
+package com.example.cycletracker.database.repositoryImpl
 
 import com.example.cycletracker.data.dao.RemainderRepository
-import com.example.cycletracker.data.dao.RemaindersDAO
-import com.example.cycletracker.data.model.Remainders
+import com.example.cycletracker.database.dao.RemaindersDAO
+import com.example.cycletracker.model.Remainders
 
 class RemainderRepositoryImpl(private val remaindersDAO: RemaindersDAO) :RemainderRepository{
     override suspend fun getAllRemainders(): List<Remainders> {
